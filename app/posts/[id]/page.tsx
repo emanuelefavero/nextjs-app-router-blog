@@ -16,6 +16,15 @@ type PostData = {
   contentHtml: string
 }
 
+export async function generateMetadata({ params }: Props) {
+  const postData: PostData = await getPostData(params.id)
+
+  return {
+    title: postData.title,
+  }
+}
+
+// -< Post >-
 export default async function Post({ params }: Props) {
   const postData: PostData = await getPostData(params.id)
 
