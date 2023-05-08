@@ -20,6 +20,8 @@ export default function RootLayout({
   home,
 }: {
   children: React.ReactNode
+
+  // TODO: remove this, separate header component from layout, convert Header component to client component and check if is home by getting the current route using usePathname hook
   home?: boolean
 }) {
   return (
