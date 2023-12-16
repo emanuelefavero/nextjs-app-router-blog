@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Date from '@/components/Date'
-import { siteTitle } from '@/app/layout'
 import utilStyles from './utils.module.scss'
 
 import { getSortedPostsData } from '@/lib/posts'
@@ -10,6 +9,8 @@ type AllPostsData = {
   title: string
   id: string
 }[]
+
+const siteTitle = "Next.js Sample Website";
 
 export const metadata = {
   title: siteTitle,
