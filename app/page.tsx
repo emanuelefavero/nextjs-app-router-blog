@@ -1,37 +1,38 @@
-import Link from 'next/link'
-import Date from '@/components/Date'
-import { siteTitle } from '@/app/layout'
-import utilStyles from './utils.module.scss'
+import Link from "next/link";
+import Date from "@/components/Date";
+import utilStyles from "./utils.module.scss";
 
-import { getSortedPostsData } from '@/lib/posts'
+import { getSortedPostsData } from "@/lib/posts";
 
 type AllPostsData = {
-  date: string
-  title: string
-  id: string
-}[]
+  date: string;
+  title: string;
+  id: string;
+}[];
+
+const siteTitle = "Next.js Sample Website";
 
 export const metadata = {
   title: siteTitle,
-}
+};
 
 export default function Home() {
-  const allPostsData: AllPostsData = getSortedPostsData()
+  const allPostsData: AllPostsData = getSortedPostsData();
 
   return (
     <>
       <section className={`${utilStyles.headingMd} text-gray-600`}>
         <p>
           Hello, I&apos;m <b>Emanuele</b>. I&apos;m a software engineer in love
-          with front end development. You can contact me on{' '}
-          <a href='https://www.linkedin.com/in/emanuele-favero/'>Linkedin</a>.
+          with front end development. You can contact me on{" "}
+          <a href="https://www.linkedin.com/in/emanuele-favero/">Linkedin</a>.
         </p>
         <p>
           <i>
-            Check out my projects on{' '}
-            <a target='_blank' href='https://github.com/emanuelefavero'>
+            Check out my projects on{" "}
+            <a target="_blank" href="https://github.com/emanuelefavero">
               GitHub
-            </a>{' '}
+            </a>{" "}
           </i>
         </p>
         <p>(This is a Next.js sample website)</p>
@@ -43,11 +44,11 @@ export default function Home() {
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-              <div className='font-medium mb-1 mt-5'>
+              <div className="font-medium mb-1 mt-5">
                 <Link href={`/posts/${id}`}>{title}</Link>
               </div>
               {/* <br /> */}
-              <small className='text-gray-500 font-medium'>
+              <small className="text-gray-500 font-medium">
                 <Date dateString={date} />
               </small>
             </li>
@@ -55,5 +56,5 @@ export default function Home() {
         </ul>
       </section>
     </>
-  )
+  );
 }
